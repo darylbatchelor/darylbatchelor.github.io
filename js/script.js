@@ -18,8 +18,8 @@ var score = 0;
 	 		console.log("score: " + score);
 	 		console.log("bullets: " + bullets);
 	 		
-	 		$('a-scene').append("<a-entity class='non-clickable' material='color: red; shader: flat' scale='0.5 0.5 0.5' geometry='primitive: box' position='"+ objPosn.x + ", " + objPosn.y + ", "+ objPosn.z +"'></a-entity>");
-
+	 		$('a-scene').append("<a-image class='non-clickable' src='img/blood.png' width='1' height='1' position='"+ objPosn.x + ", " + objPosn.y + ", "+ objPosn.z +"'></a-entity>");
+	 		$('a-scene').append("<a-entity class='chicken-sound' sound='src: sound/chicken.mp3; autoplay: true' position='"+ objPosn.x + ", " + objPosn.y + ", "+ objPosn.z +"' ></a-entity>");
 		}  else {
 
 			$('#sound-holder').attr("sound", "src: sound/click.mp3; autoplay: true");
@@ -37,6 +37,12 @@ var score = 0;
 		setTimeout(reload, 1500);
 	});
 
+	//restart game
+
+	$( ".new-game" ).click(function() {
+		location.reload();
+	});
+
 function removeSound(){
 	$('#sound-holder').removeAttr("sound");
 }
@@ -47,3 +53,4 @@ function reload(){
 
 });
 
+//<a-entity class='non-clickable' material='color: red; shader: flat' scale='0.5 0.5 0.5' geometry='primitive: box' position='"+ objPosn.x + ", " + objPosn.y + ", "+ objPosn.z +"'></a-entity>
